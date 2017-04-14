@@ -1,0 +1,69 @@
+a:link{
+	color: #BCEE68;
+}
+a:visited{
+	color:#E3E3E3;
+}
+a:hover {
+	color: #68228B;
+}
+a:active {
+	color:#4B0082s;
+}
+a{
+	color:#FFFFFF;
+}
+ul {
+	style-type:none;width:100%;text-align:right;
+}
+li {	
+	display:inline;
+}
+p{
+	font-family:MingLiU;
+	color:#FFFFFF;
+}
+h1{
+	color:#FFFFFF;
+	font-family:Microsoft yahei;
+	text-align:center;
+}
+*{
+	box-sizing: border-box;
+}
+
+body{
+	background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492081437125&di=e4a9524de793405b2b278e7753cafaf6&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F184e62d0f703918f97667522513d269758eec408.jpg) repeat scroll top ;
+	padding: 0;
+	margin: 0;	
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+#wrapper{
+	max-width: 1200px;
+	min-width: 800px;
+	margin: auto;
+}
+header,footer{
+	border: 1px solid #9df;
+	margin: 1% 0;
+	height: 120px;
+}
+aside,main{
+	border: 1px solid #9df;
+}
+section,aside,main{
+	min-height: 500px;
+}
+aside{
+	width: 30%;
+	margin-right: 0.5%;
+	float: left;
+}
+main{
+	width: 69%;
+	float: right;
+}
