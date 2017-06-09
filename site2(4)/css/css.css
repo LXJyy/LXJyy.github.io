@@ -1,0 +1,312 @@
+*{
+	box-sizing: border-box;
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+ul{
+	list-style-type: none;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}
+.container{
+	max-width: 1200px;
+	margin: auto;
+}
+body{
+	min-height: 1400px;
+	font-family: "黑体";
+}
+
+header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding: 20px 0px;
+	background-color:rgba(0,0,0,0);
+	z-index: 99999;
+	transition: background-color .5s,padding .5s;
+}
+header.on{
+	padding: 3px 0px;
+	background-color:rgba(0,0,0,.8);
+}
+header .logo{
+	float: left;
+}
+header .logo span,
+header .logo img{
+	vertical-align: middle;
+}
+header .logo span{
+	font-size: 3.6em;
+	font-family: 'Dancing Script', cursive;
+}
+header .topMenu{
+	float: right;
+}
+header .topMenu ul li{
+	float: left;
+	margin: 20px;
+}
+header .topMenu a{
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+header .topMenu a:hover{
+	color: #339BEB;
+}
+.banner{
+	min-height: 800px;
+	background: url(../img/banner.jpg) no-repeat center top;
+}
+.banner .caption{
+	position: absolute;
+	color: #FFFFFF;
+	max-width: 800px;
+	height: 180px;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+	line-height: 1.5;
+}
+.banner .caption h1{
+	text-align: center;
+
+}
+.banner .caption h1 strong{
+	font-style: normal;
+	color: #339BEB;
+}
+
+.banner .caption p strong{
+	background-color:rgba(255,255,255,.5);
+	color: #000;
+	padding: 2px 4px;
+	font-style: normal;
+	text-shadow: none;
+}
+.about img{
+	width: 48%;
+	float: left;
+}
+
+section h2 {
+	text-align: center;
+	font-family: "微软雅黑";
+	margin-top: 50px;
+}
+section h2+p {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 60px;
+}
+.about .text{
+	float: right;
+	width: 48%;
+	line-height: 2;
+}
+.about .text p:first-child{
+	margin-top: 0;
+}
+.about .text ol{
+	padding: 0;
+	list-style: none;
+	
+	margin: 20px 0;
+	counter-reset: zz;
+}
+.about .text li{
+	counter-increment: zz;
+}
+.about .text li::before {
+	content: counter(zz);
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	text-align: center;
+	border: 1px dashed #000;
+	line-height: 20px;
+	border-radius: 20px;
+	margin-right: 20px;
+	transition: transform .5s;
+	cursor: pointer;
+}
+.about .text li:hover::before{
+	transform: translate(10px) rotate(360deg);
+}
+.service{
+	min-height: 800px;
+	background: url(../img/desktop.jpg)center center no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.container {
+	max-width: 1200px;
+	margin: auto;
+	position: relative;
+	z-index: 1;
+	padding: 1px;
+}
+.service li{
+	float: left;
+	width: 48%;
+	text-align: right;
+	cursor: pointer;
+	min-height: 100px;
+	margin-top: 30px;
+}
+.service li p{
+	display: block;
+	margin-top: 15px;
+}
+.service li ::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.service li:nth-child(2n) {
+	text-align: left;
+	float: right;
+}
+.service li h3{
+	display: inline-block;
+	margin: 0;
+}
+.service li i {
+	float: right;
+	padding: 5px 0px 5px 20px;
+	transition: transform .5s;
+}
+.service li:nth-child(2n) i {
+	float: left;
+	padding: 5px 20px 5px 0px;
+}
+.service li:hover i {
+	transform: scale(1.2);
+	color: #339BEB;
+	}
+	.case{
+	
+}
+.case .container a {
+	text-decoration: none;
+	color: #339BEB;
+}
+.case figure figcaption {
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	top: 50%;
+	bottom: 5%;
+	background-color: rgba(255,255,255,.8);
+	padding: 10px;
+}
+.case figure{
+	float: left;
+	width: 24%;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	margin-right: 10px;
+	margin-left: 0px;
+	/*
+	 浮动
+	宽度
+	右侧margin的计算
+	 * */
+}
+.case figure img{
+	width: 100%;
+	height: auto;
+	transition: transform .5s;
+	vertical-align: top;
+	/*
+	 宽度  100%
+	 高度
+	 * */
+}
+.case figure:hover img {
+	transform: scale(1.2) rotate(3deg);
+}
+.case figure figcaption .time {
+	position: absolute;
+	width: 50px;
+	height: 28px;
+	margin-top: 15px;
+	background-color: #339BEB;
+	font-size: 0.8em;
+	text-align: center;
+}
+.case figure figcaption .time .month {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.case figure figcaption .data {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	font-size: 0.8em;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	background-color: rgba(0,0,0,.2);
+	text-align: right;
+}
+.case .container h3{
+	margin-left: 70px;
+}
+.contact{
+	background: url(../img/android-1869510_1920.jpg)no-repeat center top;
+	background-size: cover;
+	color: #fff;
+}
+.contact .left {
+	width: 48%;
+	float: left;
+	margin-right: 4%;
+}
+.contact .right {
+	float: right;
+	width: 48%;
+	margin-right: 0%;
+}
+.contact .right input, .contact .right textarea {
+	width: 100%;
+	padding: 10px 16px;
+	margin: 10px 0;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.6);
+}
+.contact .left p{
+	padding-bottom: 15px;
+}
+.contact .left ul li{
+	display: list-item;
+	margin-top: 15px;
+}
+.contact .left ul li i{
+	padding-right: 8px;
+}
+form {
+	display: block;
+	margin-top: 0em;
+}
+::-webkit-input-placeholder{
+	color: #000;
+}
+::-moz-placeholder{
+	color: #000;
+}
+footer {
+	text-align: center;
+}
