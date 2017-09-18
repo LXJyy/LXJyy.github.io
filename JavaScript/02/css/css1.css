@@ -1,0 +1,14 @@
+body{
+	background: url(../img/t2.jpg) repeat center center;
+}
+#A{
+	font-size: 17px;
+	color:white;
+	line-height: 1.5em;
+}
+h1{
+	color:lightsalmon;
+}
+p{
+	text-indent: 2em;
+}
