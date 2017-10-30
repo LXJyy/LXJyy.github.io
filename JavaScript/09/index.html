@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<title>登录界面</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: url(img/01.jpg);
+		}
+		.wrapper{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 400px;
+			margin-top: -200px;
+			overflow: hidden;
+		}
+		 input{
+			display: block;
+			appearance: none;
+			outline: 0;
+			border: 1px solid fade(white, 40%);
+			background-color: fade(white, 20%);
+			width: 250px;
+			border-radius: 3px;
+			padding: 10px 15px;
+			margin: 8px auto 10px auto;
+			text-align: left;
+			font-size: 18px;
+			color: black;
+			transition-duration: 0.25s;
+			font-weight: 300;
+		}
+		 input[type=submit]{
+			text-align: center;
+			appearance: none;
+			outline: 0;
+			background-color: white;
+			border: 0;
+			padding: 10px 15px;
+			color: #50a3a2;
+			border-radius: 3px;
+			width: 250px;
+			cursor: pointer;
+			font-size: 18px;
+			transition-duration: 0.25s;
+		}	
+		input[type=reset]{
+			text-align: center;
+			appearance: none;
+			outline: 0;
+			background-color: white;
+			border: 0;
+			padding: 10px 15px;
+			color: #50a3a2;
+			border-radius: 3px;
+			width: 250px;
+			cursor: pointer;
+			font-size: 18px;
+			transition-duration: 0.25s;
+		}	
+		.link{
+			font-size: 10px;
+		}
+		p{
+			font-family: "微软雅黑";
+			color: white;
+			font-size: 20px;
+		}
+		a{
+			color: white;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+					<from>
+						 <table>
+                
+                <tr>        
+                    
+                    <td><p>用户名：</p></td>
+                    <td>
+                       <input type="text" placeholder="用户名" id="username"/>
+                    </td>
+                        
+                </tr>
+                 <tr>
+                    <td><p>密码：</p></td>
+                    <td>
+                       <input type="password" placeholder="密码" id="password"/>
+                    	<a href="/password_reset" class="link">忘记密码？</a>
+                  
+                   </td> 
+                   	
+                   		
+                  </tr>
+    			<tr>	
+                   	
+    			</tr><tr>	
+    				<td>
+                   	<td>
+                   		<input type="submit" value="Sign" id="sign"/>
+                   		<input type="submit" value="Register" id="register" />
+                   	</td>
+                 	</td>
+    			</tr>
+                   	
+                
+           </table>
+					
+											
+					
+					</from>			
+			</div>
+		</div>
+	<script type="text/javascript">
+		var oUsername=document.getElementById("username");
+		var oPassword=document.getElementById("password");
+		var oLogin=document.getElementById("sign");
+		var oRegister=document.getElementById("register");
+		document.onkeydown=function(event){
+	        var event=event||window.event;
+	        document.getElementById("username").innerHTML=event.keyCode;  
+	        document.getElementById("password").innerHTML=event.keyCode; 
+      }
+		oLogin.addEventListener("click",function () {
+			if(oUsername.value!=""&&oPassword.value!=""){
+				alert("登录成功！");
+				window.open("https://github.com/BestACE/fed/issues/357");
+			}
+			else
+			alert("请输入用户名及密码！");
+		});	
+		oRegister.addEventListener("click",function(){
+		window.location.href="https://lxjyy.github.io/JavaScript/new/index.html";
+			
+		});
+	</script>
+	</body>
+</html>
