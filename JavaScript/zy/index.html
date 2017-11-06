@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>左右脑测试</title>
+		<style type="text/css">
+        body{
+            font-size: 20px;
+            font-family: 'Work Sans', sans-serif;
+            color: #333;
+          font-weight: 300;
+          text-align: center;
+          background-color: lightblue;
+/*         background:url(img/01.jpg) no-repeat ;*/
+        }
+        h1{
+          font-weight: 300;
+          margin: 0px;
+          padding: 10px;
+          font-size: 16px;
+          background-color: #444;
+          color: #fff;
+        }
+        .question{
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+        .answers {
+          margin-bottom: 20px;
+          text-align: left;
+          display: inline-block;
+        }
+        .answers label{
+          display: block;
+          margin-bottom: 10px;
+        }
+        button,input{
+          font-family: 'Work Sans', sans-serif;
+            font-size: 16px;
+            background-color: #279;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        button:hover{
+            background-color: #38a;
+        }
+        input:hover{
+            background-color: #38a;
+        }
+        .slide{
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          z-index: 1;
+          opacity: 0;
+          transition: opacity 0.5s;
+        }
+        .active-slide{
+          opacity: 1;
+          z-index: 2;
+        }
+        .quiz-container{
+          position: relative;
+          height: 200px;
+          margin-top: 40px;
+        }
+        /*p{
+        	text-indent:25px
+        	}*/
+    </style>
+	</head>
+	<body>
+		<div class="quiz-container">
+      <div id="quiz"></div>
+    </div>
+    <button id="previous">前一题</button>
+    <button id="next">下一题</button>
+    <button id="submit">提交</button>
+    <div id="results" ></div>
+    <input id="final" onclick="final(this)" type="button" value="查看结果" />
+	    <p id="p" style="visibility: hidden;">
+	    	1—2:左脑10岁、右脑15岁，你擅长用感性以及灵活的方式来思考问题和思考。<br>
+	    	3—4:左脑19岁、右脑16岁，你的感性与理性都是你最强大的武器来武装自己。<br>
+    		5—6：左脑30岁、右脑25岁，你更擅长用理性=逻辑来思考跟看待、思考问题。<br>
+    		7—8：左脑10岁、右脑40岁，感性>理性，直觉、感性会给你带来财富和幸福。<br>
+    		9—10：左脑30岁、右脑60岁，你的思维惯于感性，历经沧桑般的你十分睿智。<br>
+	    </p>
+    
+
+	</body>
+	<script type="text/javascript">
+        var p=document.getElementById('p');
+		function final(){
+			if (p.style.visibility=="hidden") {
+				p.style.visibility="visible";
+			} else{
+				p.style.visibility="hidden"
+			}
+		}
+        (function() {
+          const myQuestions = [
+            {
+              question: "1. 遇到困难的时候，你通常会：",
+              answers: {
+                A:"认真分析形势及解决方案，三思后行",
+                B:"凭直觉走下一步"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "2. 两个旅游方案，你更偏好：",
+              answers: {
+                A: "冒险、富有挑战的路线",
+                B: "不太喜欢冒险，我会选择舒适安全的"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "3. 在音乐方面：",
+              answers: {
+                A: "喜欢音乐，自小就乐感很好",
+                B: "对音乐无感"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "4. 在理财方面：",
+              answers: {
+                A: "你能大概清楚自己的日常花销",
+                B: "经常有“钱都花在哪儿了”的感叹"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "5. 与陌生人初次会面时：",
+              answers: {
+                A: "对方的谈吐更让你在意",
+                B: "对方的穿着更让你在意 "
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "6. 当你在思考的时候：",
+              answers: {
+                A: "脑海中出现的大多是一个个语句",
+                B: "脑海中出现的大多是图形、图片"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "7. 在时间管理方面：",
+              answers: {
+                A: "你做事井井有条，时间分配得当",
+                B: "你经常为拖延症感到焦虑和懊恼 "
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "8. 下面哪项任务更让你感到头痛和束手无策？ ",
+              answers: {
+                A: "做一份数据分析报告",
+                B: "去郊外完成一幅写生 "
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "9. 看电影的时候经常感动到流泪？",
+              answers: {
+                A: "是的",
+                B: "不是"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "10. 你觉得更符合你的特征是：   ",
+              answers: {
+                A: "沉稳靠谱",
+                B: "灵活创意"
+              },
+              correctAnswer: "A"
+            }
+            
+          ];
+			
+		
+          function buildQuiz() {
+            // 一个存储HTML输出的地方。
+            const output = [];
+
+            // 针对每个问题…
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+              // 我们将答案存储到选择列表。
+              const answers = [];
+
+              // 以及不同的答案
+              for (letter in currentQuestion.answers) {
+                // 添加一个HTML单选按钮
+                answers.push(
+                  `<label>
+                     <input type="radio" name="question${questionNumber}" value="${letter}">
+                      ${letter} :
+                      ${currentQuestion.answers[letter]}
+                   </label>`
+                );
+              }
+
+              // 将这个问题及其答案添加到输出中
+              output.push(
+                `<div class="slide">
+                   <div class="question"> ${currentQuestion.question} </div>
+                   <div class="answers"> ${answers.join("")} </div>
+                 </div>`
+              );
+            });
+
+            // 最后将输出列表合并为一个HTML字符串，并将其放在页面上。
+            quizContainer.innerHTML = output.join("");
+          }
+          function next(e) {
+				var topn = oNext.offsetTop;
+				i = i + 1;
+				ogo.style.visibility = "hidden";
+				items[i].style.visibility = "visible";
+				items[i-1].style.visibility = "hidden";
+                console.log(oTop);                
+                if(i==10){
+                	oOver.style.visibility = "visible";
+                	oRe.style.visibility = "visible";
+                }
+                
+			}
+
+
+          function showResults() {
+            // 从测验中收集答案
+            const answerContainers = quizContainer.querySelectorAll(".answers");
+
+            // 跟踪用户的答案
+            let numCorrect = 0;
+
+            // 针对每个问题
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+              // 选择的答案
+              const answerContainer = answerContainers[questionNumber];
+              const selector = `input[name=question${questionNumber}]:checked`;
+              const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+              // 如果答案正确
+              if (userAnswer === currentQuestion.correctAnswer) {
+                // 添加正确答案的数量
+                numCorrect++;
+
+                // 改变答案涂成绿色
+                answerContainers[questionNumber].style.color = "lightgreen";
+              } else {
+                // 如果答案是错误的或空白的
+
+                // 则答案变为红色
+                answerContainers[questionNumber].style.color = "red";
+              }
+            });
+
+            // 显示正确答案总数
+            resultsContainer.innerHTML = `你答对了${myQuestions.length}中的${numCorrect}`;
+          }
+
+          function showSlide(n) {
+            slides[currentSlide].classList.remove("active-slide");
+            slides[n].classList.add("active-slide");
+            currentSlide = n;
+            
+            if (currentSlide === 0) {
+              previousButton.style.display = "none";
+            } else {
+              previousButton.style.display = "inline-block";
+            }
+            
+            if (currentSlide === slides.length - 1) {
+              nextButton.style.display = "none";
+              submitButton.style.display = "inline-block";
+            } else {
+              nextButton.style.display = "inline-block";
+              submitButton.style.display = "none";
+            }
+          }
+
+          function showNextSlide() {
+            showSlide(currentSlide + 1);
+          }
+
+          function showPreviousSlide() {
+            showSlide(currentSlide - 1);
+          }
+
+          const quizContainer = document.getElementById("quiz");
+          const resultsContainer = document.getElementById("results");
+          const submitButton = document.getElementById("submit");
+
+          // 立即展示测验
+          buildQuiz();
+
+          const previousButton = document.getElementById("previous");
+          const nextButton = document.getElementById("next");
+          const slides = document.querySelectorAll(".slide");
+          let currentSlide = 0;
+
+          showSlide(0);
+
+          // 关于提交，显示结果
+       	  submitButton.addEventListener("click", showResults);
+          previousButton.addEventListener("click", showPreviousSlide);
+          nextButton.addEventListener("click", showNextSlide);
+        })();
+    </script>
+</html>
