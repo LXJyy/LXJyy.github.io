@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+		<script type="text/javascript" src="js/intense.js"></script>
+	</head>
+	<body>
+		<header>
+    		<div class="logo">星星</div>
+    		<div class="main">
+    			<h1> Intense 图像显示 </h1>
+    			<h1> 在全屏幕查看图像的JavaScript库</h1>
+    			<h1> 单击图像显示其他操作</h1>
+    		</div>
+    	</header>
+		<section class="demos">
+			<div class="demo-image first" data-image="./img/1.jpg" data-title="First Beautiful stars" data-caption="With lots of wheaty puffs. Love those puffs."></div>
+			<div class="demo-image second" data-image="./img/2.jpg" data-title="Second Beautiful stars" data-caption="Longing for exploration. Explore me!"></div>
+			<div class="demo-image third" data-image="./img/3.jpg" data-title="Third Beautiful stars" data-caption="To your breed, your fleece, your clan be true!"></div>
+		</section>
+	</body>
+	<script>
+		window.onload = function() {
+			var elements = document.querySelectorAll('.demo-image');
+			Intense(elements);
+		}
+	</script>
+
+</html>
